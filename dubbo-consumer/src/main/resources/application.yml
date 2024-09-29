@@ -1,0 +1,20 @@
+server:
+  port: 8082
+dubbo:
+  application:
+    name: dubbo-consumer
+    qosEnable: false
+    check-serializable: false
+    serialize-check-status: DISABLE
+  consumer:
+    timeout: 10000
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://${zookeeper.address:192.XXX.XX.XXX}:2182
+
+# Logger Config
+logging:
+  level:
+    com.hexadecimal: debug
