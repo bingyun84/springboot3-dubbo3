@@ -29,7 +29,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package -DskipTests --file pom.xml
     - name: Package VM
-      run: tar -xzvf dubbo.tar.gz dubbo-consumer/target/dubbo-consumer-1.0-SNAPSHOT.jar
+      run: tar -czvf dubbo.tar.gz dubbo-consumer/target/dubbo-consumer-1.0-SNAPSHOT.jar
     #- name: Publish to GitHub Packages Apache Maven
     #  run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
     #  env:
