@@ -30,6 +30,10 @@ jobs:
       run: tar -czvf dubbo-consumer-1.0-SNAPSHOT.tar.gz dubbo-consumer/target/dubbo-consumer-1.0-SNAPSHOT.jar
     - name: Package provider
       run: tar -czvf dubbo-provider-1.0-SNAPSHOT.tar.gz dubbo-provider/target/dubbo-provider-1.0-SNAPSHOT.jar
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
     #- name: Publish to GitHub Packages Apache Maven
     #  run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
     #  env:
