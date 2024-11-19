@@ -29,7 +29,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package -DskipTests --file pom.xml
     - name: Package VM
-      run: tar -czvf dubbo.tar.gz dubbo-consumer/target/dubbo-consumer-1.0-SNAPSHOT.jar
+      run: tar -czvf dubbo-consumer-1.0-SNAPSHOT.tar.gz dubbo-consumer/target/dubbo-consumer-1.0-SNAPSHOT.jar
     #- name: Publish to GitHub Packages Apache Maven
     #  run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
     #  env:
@@ -37,7 +37,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: build-artifacts
+        name: dubbo-consumer-1.0-SNAPSHOT.tar.gz
         path: dubbo-consumer-1.0-SNAPSHOT.tar.gz
   release:
     needs: build
@@ -47,7 +47,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: build-artifacts
+          name: dubbo-consumer-1.0-SNAPSHOT.tar.gz
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
